@@ -50,3 +50,22 @@ select {
   box-sizing: border-box;
   border-radius: 6px;
 }
+.done-tab {
+  background: #d4ffd4;
+  border-left: 8px solid green;
+}
+
+.pending-tab {
+  background: #fff0d6;
+  border-left: 8px solid orange;
+}
+
+.done-text {
+  color: green;
+  font-weight: bold;
+}
+
+.pending-text {
+  color: orange;
+  font-weight: bold;
+}

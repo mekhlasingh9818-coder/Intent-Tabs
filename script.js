@@ -53,11 +53,16 @@ function displayTabs() {
       return;
     }
     tabsList.innerHTML += `
-      <div class="tab-card">
+      <div class="tab-card ${tab.done ? 'done-tab' : 'pending-tab'}">
         <p><strong>Reason:</strong> ${tab.reason}</p>
         <p><strong>Category:</strong> ${tab.category}</p>
         <p><strong>Reminder:</strong> ${tab.reminder}</p>
-        <p><strong>Status:</strong> ${tab.done ? "Done" : "Pending"}</p>
+        <p>
+        <strong>Status:</strong>
+        <span class="${tab.done ? 'done-text' : 'pending-text'}">
+          ${tab.done ? "Done" : "Pending"}
+        </span>
+        </p>
         <a href="${tab.link}" target="_blank">Open Link</a>
         <br><br>
         <button onclick="markDone(${index})">
