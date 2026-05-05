@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Too Many Tabs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Too Many Tabs</h1>
+    <p>Save links with the reason you opened them.</p>
+
+    <input type="text" id="linkInput" placeholder="Paste link here">
+    <input type="text" id="reasonInput" placeholder="Why did you open this?">
+    <input type="text" id="categoryInput" placeholder="Category: study, shopping, etc.">
+    <input type="datetime-local" id="reminderInput">
+
+    <button onclick="saveTab()">Save Tab</button>
+
+    <h2>Saved Tabs</h2>
+    <div id="tabsList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

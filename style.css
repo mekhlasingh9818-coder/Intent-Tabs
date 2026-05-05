@@ -1,0 +1,44 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #eae0d9;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  width: 500px;
+  margin: 50px auto;
+  background: rgb(235, 231, 115);
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(43, 29, 29, 0.1);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  background: rgb(229, 144, 8);
+  color: rgb(28, 17, 27);
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+  margin-top: 10px;
+}
+
+.tab-card {
+  background: #19de26;
+  margin-top: 15px;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.tab-card a {
+  color: blue;
+}
