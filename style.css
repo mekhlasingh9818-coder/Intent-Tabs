@@ -85,7 +85,7 @@ select {
 
 .open-btn {
   text-decoration: none;
-  background: black;
+  background: rgb(0, 0, 0);
   color: rgb(204, 108, 108);
   padding: 8px 12px;
   border-radius: 6px;

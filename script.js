@@ -25,7 +25,8 @@ function saveTab() {
     category: category,
     priority: priority,
     reminder: reminder,
-    done: false
+    done: false,
+    pinned: false,
   };
 
   tabs.push(newTab);
@@ -89,6 +90,7 @@ function displayTabs() {
         </div>
         <p><strong>Category:</strong> ${tab.category}</p>
         <p><strong>Priority:</strong> ${tab.priority}</p>
+        <p><strong>Pinned:</strong> ${tab.pinned ? "Yes" : "No"}</p>
         <p><strong>Reminder:</strong> ${tab.reminder}</p>
         <p>
         <strong>Status:</strong>
@@ -96,17 +98,24 @@ function displayTabs() {
           ${tab.done ? "Done" : "Pending"}
         </span>
         </p>
+        <button onclick="togglePin(${index})">
+          ${tab.pinned ? "Unpin" : "Pin"}
+        </button>
         <button onclick="markDone(${index})">
-  ${tab.done ? "Completed" : "Mark Done"}
-</button>
-
-<button onclick="deleteTab(${index})">Delete</button>
+          ${tab.done ? "Completed" : "Mark Done"}
+        </button>
+        <button onclick="deleteTab(${index})">Delete</button>
       </div>
     `;
   });
 }
 function markDone(index) {
   tabs[index].done = !tabs[index].done;
+  localStorage.setItem("tabs", JSON.stringify(tabs));
+  displayTabs();
+}
+function togglePin(index) {
+  tabs[index].pinned = !tabs[index].pinned;
   localStorage.setItem("tabs", JSON.stringify(tabs));
   displayTabs();
 }
