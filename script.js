@@ -54,7 +54,10 @@ function displayTabs() {
   overdueList.innerHTML = "";
   todayList.innerHTML = "";
 
-  tabs.forEach((tab, index) => {
+  let sortedTabs = [...tabs].sort((a, b) => b.pinned - a.pinned);
+
+  sortedTabs.forEach((tab) => {
+    let index = tabs.indexOf(tab);
     if (
       !tab.reason.toLowerCase().includes(searchValue) &&
       !tab.category.toLowerCase().includes(searchValue)
@@ -81,6 +84,7 @@ function displayTabs() {
 
     targetList.innerHTML += `
       <div class="tab-card ${tab.done ? 'done-tab' : 'pending-tab'}">
+        ${tab.pinned ? "<p>📌 Pinned</p>" : ""}
         <p><strong>Reason:</strong> ${tab.reason}</p>
         <div class="card-header">
           <h3>${tab.website}</h3>
