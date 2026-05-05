@@ -1,6 +1,6 @@
 body {
-  font-family: Arial, sans-serif;
-  background: #eae0d9;
+  font-family: 'Times New Roman', Times, serif;
+  background: #f5ede7;
   margin: 0;
   padding: 0;
 }
@@ -8,10 +8,10 @@ body {
 .container {
   width: 500px;
   margin: 50px auto;
-  background: rgb(235, 231, 115);
+  background: #d8b8a5;
   padding: 25px;
   border-radius: 12px;
-  box-shadow: 0 0 10px rgba(43, 29, 29, 0.1);
+  box-shadow: 0 0 10px rgba(18, 11, 11, 0.1);
 }
 
 input {
@@ -24,19 +24,21 @@ input {
 button {
   width: 100%;
   padding: 12px;
-  background: rgb(229, 144, 8);
-  color: rgb(28, 17, 27);
+  background: #f1e6cc;
+  color: r#46355d;
   border: none;
   cursor: pointer;
   border-radius: 6px;
   margin-top: 10px;
+  transition: 0.3s;
 }
 
 .tab-card {
-  background: #19de26;
+  background: #cb8f8f;
   margin-top: 15px;
   padding: 15px;
   border-radius: 8px;
+  margin-bottom: 20px;
 }
 
 .tab-card a {
@@ -51,21 +53,52 @@ select {
   border-radius: 6px;
 }
 .done-tab {
-  background: #d4ffd4;
+  background: #beeacf;
   border-left: 8px solid green;
 }
 
 .pending-tab {
-  background: #fff0d6;
+  background: #ffd6d6;
   border-left: 8px solid orange;
 }
 
 .done-text {
-  color: green;
+  color: rgb(2, 80, 2);
   font-weight: bold;
 }
 
 .pending-text {
   color: orange;
   font-weight: bold;
+}
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.open-btn {
+  text-decoration: none;
+  background: black;
+  color: rgb(204, 108, 108);
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.open-btn:hover {
+  opacity: 0.8;
+  background: #abe646;
+}
+
+button:hover {
+  transform: scale(1.02);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  opacity: 0.9;
 }
