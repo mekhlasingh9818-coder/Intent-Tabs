@@ -18,6 +18,12 @@
     <button onclick="saveTab()">Save Tab</button>
 
     <h2>Saved Tabs</h2>
+    <input
+  type="text"
+  id="searchInput"
+  placeholder="Search tabs..."
+  onkeyup="displayTabs()"
+/>
     <div id="tabsList"></div>
   </div>
 

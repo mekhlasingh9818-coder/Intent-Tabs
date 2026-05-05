@@ -32,9 +32,18 @@ function saveTab() {
 
 function displayTabs() {
   let tabsList = document.getElementById("tabsList");
+  let searchValue = document
+  .getElementById("searchInput")
+  .value.toLowerCase();
   tabsList.innerHTML = "";
 
   tabs.forEach((tab, index) => {
+    if (
+      !tab.reason.toLowerCase().includes(searchValue) &&
+      !tab.category.toLowerCase().includes(searchValue)
+    ) {
+      return;
+    }
     tabsList.innerHTML += `
       <div class="tab-card">
         <p><strong>Reason:</strong> ${tab.reason}</p>
