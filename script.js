@@ -35,6 +35,7 @@ function displayTabs() {
   let searchValue = document
   .getElementById("searchInput")
   .value.toLowerCase();
+  let statusFilter = document.getElementById("statusFilter").value;
   tabsList.innerHTML = "";
 
   tabs.forEach((tab, index) => {
@@ -42,6 +43,13 @@ function displayTabs() {
       !tab.reason.toLowerCase().includes(searchValue) &&
       !tab.category.toLowerCase().includes(searchValue)
     ) {
+      return;
+    }
+    if (statusFilter === "pending" && tab.done === true) {
+      return;
+    }
+
+    if (statusFilter === "done" && tab.done === false) {
       return;
     }
     tabsList.innerHTML += `

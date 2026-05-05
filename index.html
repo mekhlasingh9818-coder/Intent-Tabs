@@ -24,6 +24,12 @@
   placeholder="Search tabs..."
   onkeyup="displayTabs()"
 />
+<select id="statusFilter" onchange="displayTabs()">
+  <option value="all">All Tabs</option>
+  <option value="pending">Pending</option>
+  <option value="done">Done</option>
+</select>
+
     <div id="tabsList"></div>
   </div>
 

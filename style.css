@@ -42,3 +42,11 @@ button {
 .tab-card a {
   color: blue;
 }
+
+select {
+  width: 100%;
+  padding: 12px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border-radius: 6px;
+}
