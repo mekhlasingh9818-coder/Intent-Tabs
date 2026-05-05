@@ -5,6 +5,12 @@ function saveTab() {
   let reason = document.getElementById("reasonInput").value;
   let category = document.getElementById("categoryInput").value;
   let reminder = document.getElementById("reminderInput").value;
+  try {
+    new URL(link);
+  } catch {
+    alert("Please enter a valid URL like https://example.com");
+    return;
+  }
 
   if (link === "" || reason === "") {
     alert("Please enter at least a link and reason.");
@@ -12,6 +18,7 @@ function saveTab() {
   }
 
   let newTab = {
+    website: new URL(link).hostname,
     link: link,
     reason: reason,
     category: category,
@@ -71,6 +78,7 @@ function displayTabs() {
     targetList.innerHTML += `
       <div class="tab-card ${tab.done ? 'done-tab' : 'pending-tab'}">
         <p><strong>Reason:</strong> ${tab.reason}</p>
+        <p><strong>Website:</strong> ${tab.website}</p>
         <p><strong>Category:</strong> ${tab.category}</p>
         <p><strong>Reminder:</strong> ${tab.reminder}</p>
         <p>
