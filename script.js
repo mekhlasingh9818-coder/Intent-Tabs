@@ -32,11 +32,16 @@ function saveTab() {
 
 function displayTabs() {
   let tabsList = document.getElementById("tabsList");
+  let overdueList = document.getElementById("overdueList");
+  let todayList = document.getElementById("todayList");
   let searchValue = document
   .getElementById("searchInput")
   .value.toLowerCase();
   let statusFilter = document.getElementById("statusFilter").value;
+  let today = new Date().toISOString().split("T")[0];
   tabsList.innerHTML = "";
+  overdueList.innerHTML = "";
+  todayList.innerHTML = "";
 
   tabs.forEach((tab, index) => {
     if (
@@ -52,7 +57,18 @@ function displayTabs() {
     if (statusFilter === "done" && tab.done === false) {
       return;
     }
-    tabsList.innerHTML += `
+
+    let reminderDate = tab.reminder.split("T")[0];
+
+    let targetList = tabsList;
+
+    if (reminderDate < today && !tab.done) {
+      targetList = overdueList;
+    } else if (reminderDate === today && !tab.done) {
+      targetList = todayList;
+    }
+
+    targetList.innerHTML += `
       <div class="tab-card ${tab.done ? 'done-tab' : 'pending-tab'}">
         <p><strong>Reason:</strong> ${tab.reason}</p>
         <p><strong>Category:</strong> ${tab.category}</p>
