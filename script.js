@@ -4,6 +4,7 @@ function saveTab() {
   let link = document.getElementById("linkInput").value;
   let reason = document.getElementById("reasonInput").value;
   let category = document.getElementById("categoryInput").value;
+  let priority = document.getElementById("priorityInput").value;
   let reminder = document.getElementById("reminderInput").value;
   try {
     new URL(link);
@@ -22,6 +23,7 @@ function saveTab() {
     link: link,
     reason: reason,
     category: category,
+    priority: priority,
     reminder: reminder,
     done: false
   };
@@ -32,6 +34,7 @@ function saveTab() {
   document.getElementById("linkInput").value = "";
   document.getElementById("reasonInput").value = "";
   document.getElementById("categoryInput").value = "";
+  document.getElementById("priorityInput").value = "low";
   document.getElementById("reminderInput").value = "";
 
   displayTabs();
@@ -85,6 +88,7 @@ function displayTabs() {
           </a>
         </div>
         <p><strong>Category:</strong> ${tab.category}</p>
+        <p><strong>Priority:</strong> ${tab.priority}</p>
         <p><strong>Reminder:</strong> ${tab.reminder}</p>
         <p>
         <strong>Status:</strong>
