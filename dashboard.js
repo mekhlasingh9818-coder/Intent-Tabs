@@ -18,7 +18,7 @@ function displayTabs() {
     return;
   }
 
-  tabs.forEach((tab) => {
+  tabs.forEach((tab, index) => {
   tabsList.innerHTML += `
     <div class="tab-card ${tab.done ? 'done-tab' : 'pending-tab'}">
       ${tab.pinned ? "<p>📌 Pinned</p>" : ""}
@@ -40,9 +40,62 @@ function displayTabs() {
           ${tab.done ? "Done" : "Pending"}
         </span>
       </p>
+      <div class="card-actions">
+        <button class="done-btn" data-index="${index}">
+        ${tab.done ? "Mark Pending" : "Mark Done"}
+        </button>
+
+        <button class="pin-btn" data-index="${index}">
+        ${tab.pinned ? "Unpin" : "Pin"}
+        </button>
+
+        <button class="delete-btn" data-index="${index}">
+        Delete
+        </button>
+      </div>
     </div>
   `;
 });
+document.querySelectorAll(".done-btn").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const index = this.dataset.index;
+    markDone(index);
+  });
+});
+
+document.querySelectorAll(".pin-btn").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const index = this.dataset.index;
+    togglePin(index);
+  });
+});
+
+document.querySelectorAll(".delete-btn").forEach(btn => {
+  btn.addEventListener("click", function () {
+    const index = this.dataset.index;
+    deleteTab(index);
+  });
+});
+}
+function saveTabs() {
+  chrome.storage.local.set({ tabs: tabs }, function () {
+    displayTabs();
+  });
+}
+
+function markDone(index) {
+  tabs[index].done = !tabs[index].done;
+  saveTabs();
+}
+
+function togglePin(index) {
+  tabs[index].pinned = !tabs[index].pinned;
+  saveTabs();
+}
+
+function deleteTab(index) {
+  tabs.splice(index, 1);
+  saveTabs();
 }
 
   const darkModeBtn = document.getElementById("darkModeBtn");
