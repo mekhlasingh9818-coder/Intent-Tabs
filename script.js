@@ -45,11 +45,17 @@ function displayTabs() {
   let tabsList = document.getElementById("tabsList");
   let overdueList = document.getElementById("overdueList");
   let todayList = document.getElementById("todayList");
-  let searchValue = document
-  .getElementById("searchInput")
-  .value.toLowerCase();
+  let searchValue = document.getElementById("searchInput").value.toLowerCase();
   let statusFilter = document.getElementById("statusFilter").value;
   let today = new Date().toISOString().split("T")[0];
+  let totalTabs = tabs.length;
+  let pendingTabs = tabs.filter(tab => !tab.done).length;
+  let doneTabs = tabs.filter(tab => tab.done).length;
+  let pinnedTabs = tabs.filter(tab => tab.pinned).length;
+  document.getElementById("totalTabs").textContent = totalTabs;
+  document.getElementById("pendingTabs").textContent = pendingTabs;
+  document.getElementById("doneTabs").textContent = doneTabs;
+  document.getElementById("pinnedTabs").textContent = pinnedTabs;
   tabsList.innerHTML = "";
   overdueList.innerHTML = "";
   todayList.innerHTML = "";
