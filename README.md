@@ -1,4 +1,4 @@
-# Too Many Tabs 🧠✨
+# IntentTabs 🧠✨
 
 A productivity tool that helps you remember why you opened a tab, not just the tab itself.
 
