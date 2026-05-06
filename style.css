@@ -173,8 +173,7 @@ button:hover {
 }
 
 #darkModeBtn:hover {
-  background: #86649c;
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .top-bar {
