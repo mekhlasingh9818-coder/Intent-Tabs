@@ -63,3 +63,43 @@ if (localStorage.getItem("theme") === "dark") {
 
 document.getElementById("searchInput").addEventListener("keyup", displayTabs);
 document.getElementById("statusFilter").addEventListener("change", displayTabs);
+
+document.getElementById("importFile").addEventListener("change", function (event) {
+  const file = event.target.files[0];
+
+  if (!file) return;
+
+  const reader = new FileReader();
+
+  reader.onload = function (e) {
+    try {
+      const importedTabs = JSON.parse(e.target.result);
+
+      if (!Array.isArray(importedTabs)) {
+        alert("Invalid backup file.");
+        return;
+      }
+
+      tabs = importedTabs;
+
+      chrome.storage.local.set({ tabs: tabs }, function () {
+        alert("Tabs imported successfully!");
+        displayTabs();
+      });
+    } catch {
+      alert("Could not import file.");
+    }
+  };
+
+  reader.readAsText(file);
+});
+
+document.getElementById("exportBtn").addEventListener("click", function () {
+  const data = JSON.stringify(tabs, null, 2);
+  const blob = new Blob([data], { type: "application/json" });
+
+  const link = document.createElement("a");
+  link.href = URL.createObjectURL(blob);
+  link.download = "too-many-tabs-backup.json";
+  link.click();
+});
