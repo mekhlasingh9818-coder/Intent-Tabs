@@ -1,3 +1,6 @@
+if (Notification.permission !== "granted") {
+  Notification.requestPermission();
+}
 let tabs = JSON.parse(localStorage.getItem("tabs")) || [];
 
 function saveTab() {
@@ -161,3 +164,24 @@ function toggleDarkMode() {
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark-mode");
 }
+
+function checkReminders() {
+
+  let today = new Date().toISOString().split("T")[0];
+
+  tabs.forEach((tab) => {
+
+    let reminderDate = tab.reminder.split("T")[0];
+
+    if (reminderDate <= today && !tab.done) {
+
+      new Notification("Reminder!", {
+        body: tab.reason,
+      });
+
+    }
+
+  });
+
+}
+checkReminders();
