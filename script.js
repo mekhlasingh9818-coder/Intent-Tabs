@@ -112,6 +112,17 @@ function displayTabs() {
       </div>
     `;
   });
+  if (overdueList.innerHTML === "") {
+  overdueList.innerHTML = "<p class='empty-message'>No overdue tabs 🎉</p>";
+}
+
+if (todayList.innerHTML === "") {
+  todayList.innerHTML = "<p class='empty-message'>Nothing due today 🎉</p>";
+}
+
+if (tabsList.innerHTML === "") {
+  tabsList.innerHTML = "<p class='empty-message'>No upcoming tabs 🎉</p>";
+}
 }
 function markDone(index) {
   tabs[index].done = !tabs[index].done;
