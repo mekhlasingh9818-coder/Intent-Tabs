@@ -31,7 +31,10 @@ tabs.sort((a, b) => {
       ${tab.pinned ? "<p>📌 Pinned</p>" : ""}
 
       <div class="card-header">
-        <h3>${tab.website}</h3>
+        <div class="title-row">
+            <img src="https://www.google.com/s2/favicons?domain=${tab.website}" class="favicon">
+            <h3>${tab.website}</h3>
+        </div>
         <a href="${tab.link}" target="_blank" class="open-btn">Open ↗</a>
       </div>
 

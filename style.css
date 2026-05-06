@@ -231,3 +231,15 @@ p strong {
   font-weight: 500;
   color: #c9bfb5;
 }
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.favicon {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+}
