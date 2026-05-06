@@ -180,3 +180,54 @@ button:hover {
   display: flex;
   justify-content: flex-end;
 }
+.tab-card {
+  transition: 0.3s ease;
+}
+
+.tab-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+}
+
+.card-actions button {
+  width: auto;
+  padding: 9px 14px;
+  border-radius: 10px;
+  background: #9d7bb0;
+  color: white;
+  border: none;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.card-actions button:hover {
+  background: #86649c;
+  transform: scale(1.05);
+}
+
+.open-btn {
+  transition: 0.25s ease;
+}
+
+.open-btn:hover {
+  transform: scale(1.05);
+}
+
+.done-text,
+.pending-text {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.done-text {
+  color: #2ecc71; /* green */
+}
+
+.pending-text {
+  color: #f39c12; /* orange */
+}
+
+p strong {
+  font-weight: 500;
+  color: #c9bfb5;
+}
