@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Too Many Tabs</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <div class="top-bar">
+  <button onclick="toggleDarkMode()" id="darkModeBtn">
+    🌙
+  </button>
+</div>
+    <h1>Too Many Tabs</h1>
+</button>
+    <div class="stats-container">
+
+  <div class="stat-card">
+    <h3 id="totalTabs">0</h3>
+    <p>Total Tabs</p>
+  </div>
+
+  <div class="stat-card">
+    <h3 id="pendingTabs">0</h3>
+    <p>Pending</p>
+  </div>
+
+  <div class="stat-card">
+    <h3 id="doneTabs">0</h3>
+    <p>Completed</p>
+  </div>
+
+  <div class="stat-card">
+    <h3 id="pinnedTabs">0</h3>
+    <p>Pinned</p>
+  </div>
+
+</div>
+    <p>Save links with the reason you opened them.</p>
+
+    <input type="text" id="linkInput" placeholder="Paste link here">
+    <input type="text" id="reasonInput" placeholder="Why did you open this?">
+    <input type="text" id="categoryInput" placeholder="Category: study, shopping, etc.">
+    <select id="priorityInput">
+      <option value="low">Low Priority</option>
+      <option value="medium">Medium Priority</option>
+      <option value="high">High Priority</option>
+    </select>
+    <input type="datetime-local" id="reminderInput">
+
+    <button onclick="saveTab()">Save Tab</button>
+
+    <h2>Saved Tabs</h2>
+    <input
+  type="text"
+  id="searchInput"
+  placeholder="Search tabs..."
+  onkeyup="displayTabs()"
+/>
+<select id="statusFilter" onchange="displayTabs()">
+  <option value="all">All Tabs</option>
+  <option value="pending">Pending</option>
+  <option value="done">Done</option>
+</select>
+    <h2>Overdue</h2>
+    <div id="overdueList"></div>
+
+    <h2>Due Today</h2>
+    <div id="todayList"></div>
+
+    <h2>Upcoming</h2>
+    <div id="tabsList"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "manifest_version": 3,
+  "name": "Too Many Tabs Saver",
+  "version": "1.0",
+  "description": "Save your current tab with a reason and reminder.",
+  "permissions": ["tabs", "storage"],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}
