@@ -17,6 +17,13 @@ function displayTabs() {
     tabsList.innerHTML = "<p>No saved tabs yet.</p>";
     return;
   }
+tabs.sort((a, b) => {
+  if (b.pinned !== a.pinned) {
+    return b.pinned - a.pinned;
+  }
+
+  return new Date(a.reminder) - new Date(b.reminder);
+});
 
   tabs.forEach((tab, index) => {
   tabsList.innerHTML += `
