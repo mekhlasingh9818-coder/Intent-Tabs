@@ -30,6 +30,7 @@ function saveTab() {
     reminder: reminder,
     done: false,
     pinned: false,
+    notified: false
   };
 
   tabs.push(newTab);
@@ -173,11 +174,13 @@ function checkReminders() {
 
     let reminderDate = tab.reminder.split("T")[0];
 
-    if (reminderDate <= today && !tab.done) {
+    if (reminderDate <= today && !tab.done && !tab.notified) {
 
       new Notification("Reminder!", {
         body: tab.reason,
       });
+      tab.notified = true;
+      localStorage.setItem("tabs", JSON.stringify(tabs));
 
     }
 
