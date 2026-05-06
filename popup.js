@@ -41,3 +41,9 @@ document.getElementById("saveBtn").addEventListener("click", function () {
     });
   });
 });
+
+document.getElementById("dashboardBtn").addEventListener("click", function () {
+  chrome.tabs.create({
+    url: chrome.runtime.getURL("dashboard.html")
+  });
+});

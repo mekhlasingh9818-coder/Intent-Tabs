@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta charset="UTF-8">
   <title>Too Many Tabs</title>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -8,8 +9,7 @@
 
   <div class="container">
     <div class="top-bar">
-  <button onclick="toggleDarkMode()" id="darkModeBtn">
-    🌙
+  <button id="darkModeBtn">🌙</button>
   </button>
 </div>
     <h1>Too Many Tabs</h1>
@@ -39,26 +39,13 @@
 </div>
     <p>Save links with the reason you opened them.</p>
 
-    <input type="text" id="linkInput" placeholder="Paste link here">
-    <input type="text" id="reasonInput" placeholder="Why did you open this?">
-    <input type="text" id="categoryInput" placeholder="Category: study, shopping, etc.">
-    <select id="priorityInput">
-      <option value="low">Low Priority</option>
-      <option value="medium">Medium Priority</option>
-      <option value="high">High Priority</option>
-    </select>
-    <input type="datetime-local" id="reminderInput">
-
-    <button onclick="saveTab()">Save Tab</button>
-
     <h2>Saved Tabs</h2>
     <input
   type="text"
   id="searchInput"
   placeholder="Search tabs..."
-  onkeyup="displayTabs()"
 />
-<select id="statusFilter" onchange="displayTabs()">
+<select id="statusFilter">
   <option value="all">All Tabs</option>
   <option value="pending">Pending</option>
   <option value="done">Done</option>
@@ -73,6 +60,6 @@
     <div id="tabsList"></div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="dashboard.js"></script>
 </body>
 </html>
